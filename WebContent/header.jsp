@@ -4,8 +4,8 @@
 <c:set var="path2" value="${pageContext.request.contextPath }" />  
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="<%=request.getContextPath() %>/">
-      <img src="${path2 }/data/logo.png" alt="통영관광포털" width="112" height="28">
+    <a class="navbar-item" id="logo" href="<%=request.getContextPath() %>/">
+
     </a>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
