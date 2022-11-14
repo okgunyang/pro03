@@ -62,7 +62,7 @@ public class AddUserCtrl extends HttpServlet {
 			user.setId(id);
 			user.setPw(encrypted);
 			user.setName(name);
-			user.setAddr(addr1 + "\n" +addr2);
+			user.setAddr(addr1 + "<br>" +addr2);
 			user.setTel(tel);
 			user.setEmail(email);
 			user.setBirth(birth);

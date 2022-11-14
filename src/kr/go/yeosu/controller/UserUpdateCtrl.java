@@ -36,7 +36,7 @@ public class UserUpdateCtrl extends HttpServlet {
 		String addr2 = request.getParameter("address2");
 		String addr = request.getParameter("addr");
 		if(addr1!=null){
-			addr = addr1 + "\n" + addr2;
+			addr = addr1 + "<br>" + addr2;
 		}
 		String email = request.getParameter("email");
 		String tel = request.getParameter("tel");
