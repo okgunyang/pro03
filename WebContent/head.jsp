@@ -10,4 +10,6 @@
 .table { min-width:960px; }
 #logo { display:block; width:92px; height:45px; background-image:url("${path0 }/data/logo.png");
 background-size:100% auto; background-repeat:no-repeat; }
+#nav { border-bottom:3px solid #ddd; }
 </style>
+<script src="https://code.jquery.com/jquery-latest.js"></script>

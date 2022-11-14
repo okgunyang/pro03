@@ -44,9 +44,11 @@
 		    </c:if>
 		  </tbody>
 		</table>
+		<c:if test='${sid.equals("admin") }'>
 		<div class="buttons">
 		  <a href="${path1 }/notice/addNotice.jsp" class="button is-success">글 등록</a>
 		</div>
+		</c:if>
     </div>
   </section>
   <jsp:include page="/footer.jsp"></jsp:include>

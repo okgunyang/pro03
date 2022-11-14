@@ -1,3 +1,4 @@
+USE goverment;
 CREATE TABLE test(NAME VARCHAR(50), POINT INT);
 govermentgoverment
 INSERT INTO test VALUES ("김기태",100);
@@ -20,3 +21,24 @@ INSERT INTO notice(title, content) VALUES ("테스트 글1", "테스트 글2 내
 COMMIT;
 
 SELECT * FROM notice;
+
+CREATE TABLE USER(
+	id VARCHAR(30) PRIMARY KEY,
+	pw VARCHAR(300) NOT NULL,
+	NAME VARCHAR(50) NOT NULL,
+	POINT INT DEFAULT 0,
+	grade VARCHAR(4) DEFAULT "F",
+	visted INT DEFAULT 1,
+	tel VARCHAR(11),
+	addr VARCHAR(150),
+	email VARCHAR(100),
+	birth DATE,
+	regdate DATETIME DEFAULT NOW()
+);
+
+DROP TABLE USER;
+DESC USER;
+
+SELECT * FROM USER;
+UPDATE user SET grade="A" WHERE id="admin";
+COMMIT;

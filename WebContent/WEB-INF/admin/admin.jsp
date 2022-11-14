@@ -10,12 +10,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>메인 페이지</title>
+    <title>관리자 메인 페이지</title>
     <jsp:include page="/head.jsp" />
 </head>
 <body>
   	<jsp:include page="${path1 }/header.jsp" />
-	<h2>${user }테스트 입니다.</h2>
+	<section class="section">
+	    <div class="columns is-full">
+			<jsp:include page="${path1 }/admin/sidebar.jsp" />
+			<div class="column is-10">
+				<h2>${admin }테스트 입니다.</h2>
+				<h3>관리자 메인 페이지</h3>
+			</div>
+		</div>
+	</section>
 	<jsp:include page="${path1 }/footer.jsp" />
 </body>
 </html>
