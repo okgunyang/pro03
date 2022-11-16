@@ -7,6 +7,7 @@ public class TourDTO {
 	private String place;
 	private String comment1;
 	private String comment2;
+	private String imgURL;
 	public int getNo() {
 		return no;
 	}
@@ -42,6 +43,12 @@ public class TourDTO {
 	}
 	public void setComment2(String comment2) {
 		this.comment2 = comment2;
+	}
+	public String getImgURL() {
+		return imgURL;
+	}
+	public void setImgURL(String imgURL) {
+		this.imgURL = imgURL;
 	}
 	@Override
 	public String toString() {

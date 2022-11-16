@@ -16,6 +16,40 @@
   </head>
   <body>
   <jsp:include page="/header.jsp" />
+	<nav class="breadcrumb" aria-label="breadcrumbs" style="border-bottom:2px solid #ddd; padding-bottom:8px; min-height:48px; line-height:48px;">
+	  <ul style="float:right;">
+	    <li><a href="${path1 }/">Home</a></li>
+	    <li><a href="${path1 }/GetTourListCtrl.do">전체 장소</a></li>
+	    <li><a href="${path1 }/GetTourCateListCtrl.do?cate=${dto.cate }">
+ 			<c:set var="cate" value="${dto.cate }" /> 
+			<c:if test="${cate eq 'A' }">
+			<span>관광</span>
+			</c:if>
+			<c:if test="${cate eq 'B' }">
+			<span>체험</span>
+			</c:if>
+			<c:if test="${cate eq 'C' }">
+			<span>행사</span>
+			</c:if>
+			<c:if test="${grade eq 'D' }">
+			<span>축제</span>
+			</c:if>
+			<c:if test="${cate eq 'E' }">
+			<span>숙박</span>
+			</c:if>
+			<c:if test="${cate eq 'F' }">
+			<span>음식</span>
+			</c:if>
+			<c:if test="${cate eq 'G' }">
+			<span>쇼핑</span>
+			</c:if>
+			<c:if test="${cate eq 'H' }">
+			<span>기타</span>
+			</c:if>
+	    </a></li>
+	    <li class="is-active"><a href="#" aria-current="page">${dto.place }</a></li>
+	  </ul>
+	</nav>
   <section class="section">
     <div class="container">
       <h1 class="title">장소 상세보기</h1>
@@ -98,7 +132,8 @@
 		  </tbody>
 		</table>
 		<div class="buttons">
-		  <a href="${path1 }/GetTourListCtrl.do" class="button is-info">목록</a>
+		  <a href="${path1 }/GetTourListCtrl.do" class="button is-info">전체 목록</a>
+		  <a href="${path1 }/GetTourCateListCtrl.do?cate=${dto.cate }" class="button is-info">카테고리 목록</a>
 		  <c:if test='${sid.equals("admin") }'>
 			  <a href="${path1 }/DelTourCtrl.do?no=${dto.no }" class="button is-danger">장소 삭제</a>
 			  <a href="${path1 }/ModifyTourCtrl.do?no=${dto.no }" class="button is-warning">장소 수정</a>

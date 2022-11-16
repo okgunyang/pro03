@@ -16,6 +16,12 @@
   </head>
   <body>
   <jsp:include page="/header.jsp" />
+	<nav class="breadcrumb" aria-label="breadcrumbs" style="border-bottom:2px solid #ddd; padding-bottom:8px; min-height:48px; line-height:48px;">
+	  <ul style="float:right;">
+	    <li><a href="${path1 }/">Home</a></li>
+	    <li class="is-active"><a href="#" aria-current="page">전체 장소 목록</a></li>
+	  </ul>
+	</nav>
   <section class="section">
     <div class="container">
       <h1 class="title">장소 목록</h1>
