@@ -68,7 +68,15 @@
 					  </div>
 					  <p class="help is-success">장소의 상세설명을 넣어 주시기 바랍니다.</p>
 					</div>
-
+					
+					<div class="field">
+					  	<label class="label">주소</label>
+					    <input type="text" name="address1" id="address1" class="input" style="margin-bottom:10px;" placeholder="기본 주소" required>
+					    <input type="text" name="address2" id="address2" class="input" style="margin-bottom:10px;" placeholder="상세 주소" required>
+					    <input type="text" name="postcode" id="postcode" class="input" style="margin-bottom:10px;" placeholder="우편 번호" required>
+					    <button id="post_btn" onclick="findAddr()" class="button is-info">우편번호 검색</button>
+					</div>		
+								
 					<div class="field">
 					  <label class="label">이미지 추가</label>
 					  <div class="control">
@@ -121,6 +129,27 @@
 					}
 				}
 				</script>
+				<script>
+				function findAddr() {
+					new daum.Postcode({
+						oncomplete: function(data) {
+							console.log(data);
+							var roadAddr = data.roadAddress;
+							var jibunAddr = data.jibunAddress;
+							document.getElementById("postcode").value = data.zonecode;
+							if(roadAddr !== '') {
+								document.getElementById("address1").value = roadAddr;				
+							} else if(jibunAddr !== ''){
+								document.getElementById("address1").value = jibunAddr;
+							}
+							document.getElementById("address2").focus();
+							return;
+						}
+					}).open();
+				}
+				</script>
+				<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
 			</div>
 		</div>
   </section>

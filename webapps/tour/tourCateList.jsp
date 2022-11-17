@@ -51,7 +51,31 @@
 	</nav>
   <section class="section">
     <div class="container">
-      <h1 class="title">장소 상세보기</h1>
+      <h1 class="title">			<c:if test="${cate eq 'A' }">
+			<span>관광</span>
+			</c:if>
+			<c:if test="${cate eq 'B' }">
+			<span>체험</span>
+			</c:if>
+			<c:if test="${cate eq 'C' }">
+			<span>행사</span>
+			</c:if>
+			<c:if test="${grade eq 'D' }">
+			<span>축제</span>
+			</c:if>
+			<c:if test="${cate eq 'E' }">
+			<span>숙박</span>
+			</c:if>
+			<c:if test="${cate eq 'F' }">
+			<span>음식</span>
+			</c:if>
+			<c:if test="${cate eq 'G' }">
+			<span>쇼핑</span>
+			</c:if>
+			<c:if test="${cate eq 'H' }">
+			<span>기타</span>
+			</c:if>
+			목록</h1>
       	<div id="con">
       		<div class="tile is-ancestor columns" style="padding-bottom:40px;">
       			<c:if test="${not empty list }">

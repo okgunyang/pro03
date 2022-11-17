@@ -6,7 +6,7 @@
 	<div class="container"> 
 		<nav class="navbar" role="navigation" aria-label="main navigation" id="nav">
 		  <div class="navbar-brand">
-		    <a class="navbar-item" id="logo" href="<%=request.getContextPath() %>/">
+		    <a class="navbar-item" id="logo2" href="<%=request.getContextPath() %>/">
 		    </a>
 		
 		    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -77,12 +77,18 @@
 				</div>
 				<div class="navbar-item has-dropdown is-hoverable single">
 			    	<a class="navbar-link">
-				      	관광안내
+				      	함께하는 통영
 				    </a>
 					<div class="navbar-dropdown single">
 					     <a class="navbar-item" href="<%=request.getContextPath() %>/GetNoticeListCtrl.do">
 					       	공지사항
 					     </a>
+					     <a class="navbar-item" href="<%=request.getContextPath() %>/GetQnaListCtrl.do">
+					       	묻고 답하기
+					     </a>
+					     <a class="navbar-item" href="<%=request.getContextPath() %>/GetImpressListCtrl.do">
+					       	이용후기
+					     </a>					     
 				    </div> 
 				</div>
 				<div class="navbar-item has-dropdown is-hoverable single">
@@ -92,17 +98,17 @@
 				
 				    <div class="navbar-dropdown single">
 				      <a class="navbar-item">
-				        About
+				                  통영소개
 				      </a>
 				      <a class="navbar-item">
-				        Jobs
+				        통영 CI/BI
 				      </a>
 				      <a class="navbar-item">
-				        Contact
+				        관광홍보대사
 				      </a>
 				      <hr class="navbar-divider">
 				      <a class="navbar-item">
-				        Report an issue
+				        리플릿
 				      </a>
 				    </div>
 			  </div>
@@ -152,6 +158,7 @@
 			success:function(data){
 				$(".navbar-dropdown.cate").empty();
 				var trans = $.parseJSON(data);
+				console.log(trans);
 				$.each(trans, function(key, value){
 					if(key=="data"){
 						for(var i=0;i<value.length;i++){

@@ -121,6 +121,17 @@
 			      <th><label for="comment2" class="label">장소 상세 설명</label></th>
 			      <td><textarea class="textarea" name="comment2" id="comment2" cols="80" rows="8" maxlength="500" required>${dto.comment2 }</textarea></td>
 			    </tr>
+			    <tr>
+			      <th><label for="address1" class="label">주소</label></th>
+			      <td>
+			      	<p>${dto.addr }</p>
+			      	<input type="hidden" name="addr" id="addr" value="${dto.addr }" />
+				    <input type="text" name="address1" id="address1" class="input" style="margin-bottom:10px;" placeholder="기본 주소">
+				    <input type="text" name="address2" id="address2" class="input" style="margin-bottom:10px;" placeholder="상세 주소">
+				    <input type="text" name="postcode" id="postcode" class="input" style="margin-bottom:10px;" placeholder="우편 번호">
+				    <button id="post_btn" onclick="findAddr()" class="button is-info">우편번호 검색</button>
+			      </td>	
+			    </tr>
 			  </tbody>
 			</table>
 			<div class="buttons">
@@ -158,7 +169,26 @@
 		});
 	}
 	</script>
-	
+	<script>
+	function findAddr() {
+		new daum.Postcode({
+			oncomplete: function(data) {
+				console.log(data);
+				var roadAddr = data.roadAddress;
+				var jibunAddr = data.jibunAddress;
+				document.getElementById("postcode").value = data.zonecode;
+				if(roadAddr !== '') {
+					document.getElementById("address1").value = roadAddr;				
+				} else if(jibunAddr !== ''){
+					document.getElementById("address1").value = jibunAddr;
+				}
+				document.getElementById("address2").focus();
+				return;
+			}
+		}).open();
+	}
+	</script>
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <jsp:include page="/footer.jsp"></jsp:include>
   </body>
 </html>

@@ -53,7 +53,16 @@ CREATE TABLE tour(
 	cate VARCHAR(20),
 	place VARCHAR(100),
 	comment1 VARCHAR(1000),
-	comment2 VARCHAR(1000)  
+	comment2 VARCHAR(1000)
 );
+ALTER TABLE tour ADD COLUMN addr VARCHAR(200);
 DESC tour;
 SELECT * FROM tour;
+SELECT COMMENT2 FROM tour;
+select * from tour where place like CONCAT('%','통영','%');
+update tour set addr="경상남도 통영시 도남동 319-3" WHERE tourno="B001";
+update tour set addr="경상남도 통영시 발개로 205" WHERE tourno="B002";
+update tour set addr="경상남도 통영시 발개로 172-12" WHERE tourno="B003";
+update tour set addr="경상남도 통영시 동피랑1길 6-18" WHERE tourno="A004";
+update tour set addr="경상남도 통영시 남망공원길 29" WHERE tourno="A005";
+COMMIT;

@@ -13,13 +13,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>공지사항 목록</title>
     <jsp:include page="/head.jsp" />
+	<link rel="stylesheet" href="${path1 }/resource/datatables.min.css">
+	<script src="${path1 }/resource/datatables.min.js"></script>
+	<script>
+	$(document).ready( function () {
+	    $('#tb1').DataTable();
+	} );
+	</script>
   </head>
   <body>
   <jsp:include page="/header.jsp" />
   <section class="section">
     <div class="container">
       <h1 class="title">공지사항 목록</h1>
-		<table class="table">
+		<table class="table" id="tb1">
 		  <thead>
 		    <tr>
 		      <th><abbr title="No">No</abbr></th>
