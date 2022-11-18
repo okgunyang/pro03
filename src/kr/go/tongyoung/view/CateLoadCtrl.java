@@ -1,9 +1,10 @@
 package kr.go.tongyoung.view;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,28 +13,29 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.go.tongyoung.dto.TourDTO;
 import kr.go.tongyoung.model.TourDAO;
+import net.sf.json.*;
 
-@WebServlet("/GetTourCateListCtrl.do")
-public class GetTourCateListCtrl extends HttpServlet {
+@WebServlet("/CateLoadCtrl.do")
+public class CateLoadCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//UTF-8 초기화
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
+        response.setContentType("application/json");
 		
 		String cate = request.getParameter("cate");
-		//dao에서 목록 불러오기 호출하여 반환받음
+		System.out.println("카테고리: "+cate);
 		TourDAO dao = new TourDAO();
-		ArrayList<TourDTO> tourList = dao.getTourCateList(cate);
 		
-		//dao로 부터 받은 데이터를 view에 디스패치함
-		request.setAttribute("list", tourList);
-		request.setAttribute("placeCate", cate);
+		ArrayList<TourDTO> result = dao.getTourCateList(cate);
+
+		PrintWriter out = response.getWriter();
+		HashMap<String,Object> map = new HashMap<String, Object>();
+		map.put("result", result);
 		
-		RequestDispatcher view = request.getRequestDispatcher("./tour/tourCateList.jsp");
-		view.forward(request, response);
+		JSONObject json = new JSONObject();
+		json.putAll(map);
+		out.println(json.toString());
 	}
 }

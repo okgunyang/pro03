@@ -30,7 +30,7 @@
 					<th>아이디</th>
 					<td>
 						<div class="form-row">
-							<input type="text" name="id" id="id" placeholder="아이디 입력" class="input" autofocus required />
+							<input type="text" name="id" id="id" placeholder="영문소문자 및 숫자를 혼용하여 아이디 입력" class="input" pattern="^[a-z0-9]{8,16}" maxlength="16" autofocus required />
 							<input type="button" class="button is-info" value="아이디 중복 확인" onclick="idCheck()">
 							<input type="hidden" name="idck" id="idck" value="no">
 						</div>
@@ -46,11 +46,14 @@
 				</tr>
 				<tr>
 					<th>비밀번호</th>
-					<td><input type="password" name="pw" id="pw" placeholder="비밀번호 입력" class="input" required /></td>
+					<td>
+						<input type="password" name="pw" id="pw" placeholder="비밀번호 입력" class="input" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" maxlength="16" required />
+						<p>비밀번호는 최소 8자리에서 최대 16자리까지 숫자, 영문, 특수문자 각 1개 이상 포함되어야 함</p>
+					</td>
 				</tr>
 				<tr>
 					<th>비밀번호 확인</th>
-					<td><input type="password" name="pw2" id="pw2" placeholder="비밀번호  확인 입력" class="input" required /></td>
+					<td><input type="password" name="pw2" id="pw2" placeholder="비밀번호  확인 입력" class="input" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" maxlength="16" required /></td>
 				</tr>
 				<tr>
 					<th>회원이름</th>

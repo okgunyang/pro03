@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.go.tongyoung.dto.PicDTO;
 import kr.go.tongyoung.dto.TourDTO;
 import kr.go.tongyoung.model.TourDAO;
 

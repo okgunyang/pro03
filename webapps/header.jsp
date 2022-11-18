@@ -80,15 +80,21 @@
 				      	함께하는 통영
 				    </a>
 					<div class="navbar-dropdown single">
-					     <a class="navbar-item" href="<%=request.getContextPath() %>/GetNoticeListCtrl.do">
+					     <a class="navbar-item" href="${path2 }/GetNoticeListCtrl.do">
 					       	공지사항
 					     </a>
-					     <a class="navbar-item" href="<%=request.getContextPath() %>/GetQnaListCtrl.do">
+					     <a class="navbar-item" href="${path2 }/GetQnaListCtrl.do">
 					       	묻고 답하기
 					     </a>
-					     <a class="navbar-item" href="<%=request.getContextPath() %>/GetImpressListCtrl.do">
+					     <a class="navbar-item" href="${path2 }/GetImpressListCtrl.do">
 					       	이용후기
-					     </a>					     
+					     </a>
+					     <a class="navbar-item" href="${path2 }/GetDatabankListCtrl.do">
+					       	자료실
+					     </a>
+					     <a class="navbar-item" href="${path2 }/impress/online.jsp">
+					       	온라인 상담
+					     </a>
 				    </div> 
 				</div>
 				<div class="navbar-item has-dropdown is-hoverable single">

@@ -34,7 +34,7 @@ public class UserDTO {
 		return point;
 	}
 	public void setPoint(int point) {
-		point = point;
+		this.point = point;
 	}
 	public String getGrade() {
 		return grade;

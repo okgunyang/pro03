@@ -79,6 +79,29 @@ public class TourDAO {
 		return picList;
 	}
 
+	public PicDTO getPic(String tourno) {
+		PicDTO pic = new PicDTO();
+		try {
+			con = Maria.getConnection();
+			pstmt = con.prepareStatement(Maria.PIC_SELECT_ONE);
+			pstmt.setString(1, tourno);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				pic.setNo(rs.getInt("no"));
+				pic.setTourno(rs.getString("tourno"));
+				pic.setPicname(rs.getString("picname"));
+				pic.setPos(rs.getInt("pos"));
+			}
+		} catch(ClassNotFoundException e){
+			System.out.println("드라이버 로딩 실패");
+		} catch(Exception e){
+			System.out.println("SQL 구문이 처리되지 못했거나 연산이 잘못되었습니다.");
+		} finally {
+			Maria.close(rs, pstmt, con);
+		}
+		return pic;
+	}
+	
 	public int addTour(TourDTO dto) {
 		int cnt = 0;
 		try {
@@ -339,5 +362,31 @@ public class TourDAO {
 				Maria.close(rs, pstmt, con);
 			}
 			return tourList;
+	}
+
+	public TourDTO getPlace(String tourno) {
+		TourDTO tour = new TourDTO();
+		try {
+			con = Maria.getConnection();
+			pstmt = con.prepareStatement(Maria.TOUR_IMPRESS_PLACE);
+			pstmt.setString(1, tourno);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				tour.setNo(rs.getInt("no"));
+				tour.setTourno(rs.getString("tourno"));
+				tour.setCate(rs.getString("cate"));
+				tour.setPlace(rs.getString("place"));
+				tour.setComment1(rs.getString("comment1"));
+				tour.setComment2(rs.getString("comment2"));
+				tour.setAddr(rs.getString("addr"));
+			}
+		} catch(ClassNotFoundException e){
+			System.out.println("드라이버 로딩 실패");
+		} catch(Exception e){
+			System.out.println("SQL 구문이 처리되지 못했거나 연산이 잘못되었습니다.");
+		} finally {
+			Maria.close(rs, pstmt, con);
+		}
+		return tour;
 	}
 }
