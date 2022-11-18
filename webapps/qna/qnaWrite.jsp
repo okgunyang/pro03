@@ -27,18 +27,18 @@
 					<tbody>
 						<tr>
 							<th><label for="title">질문 제목</label></th>
-							<td><input type="text" name="title" id="title" placeholder="제목 입력" maxlength="100" class="form-control" required></td>
+							<td><input type="text" name="title" id="title" placeholder="제목 입력" maxlength="100" class="input" required></td>
 						</tr>
 						<tr>
 							<th><label for="content">질문 내용</label></th>
 							<td>
-								<textarea cols="100" rows="6" name="content" id="content" maxlength="600" class="form-control"></textarea>
+								<textarea cols="100" rows="6" name="content" id="content" maxlength="600" class="textarea"></textarea>
 							</td>
 						</tr>
 						<tr>
 							<th><label for="author">작성자</label></th>
 							<td>
-								<input type="text" name="author" id="author" class="form-control" value='${sid }' readonly required>
+								<input type="text" name="author" id="author" class="input" value='${sid }' readonly required>
 								<input type="hidden" name="lev" id="lev" value="0">
 							</td>
 						</tr>
@@ -54,8 +54,8 @@
 					</tbody>
 				</table>
 				<div class="btn-group">
-					<button type="submit" class="btn btn-primary">글 쓰기</button>
-					<a href="<%=request.getContextPath() %>/GetQnaListCtrl.do" class="btn btn-info">목록으로</a>
+					<button type="submit" class="button is-primary">글 쓰기</button>
+					<a href="<%=request.getContextPath() %>/GetQnaListCtrl.do" class="button is-info">목록으로</a>
 				</div>
 			</form>
 		</div>	
